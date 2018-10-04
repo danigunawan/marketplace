@@ -2,13 +2,15 @@
 
 class CategoriesController < ApplicationController
   include Service::Searchable
+  include Service::Sortable
 
   before_action :category
 
   def show
     @services = records.joins(:service_categories).
-      where(service_categories: { category_id: category_and_descendant_ids }).
-      page(params[:page])
+      where(service_categories: { category_id: category_and_descendant_ids })
+        .order(ordering)
+        .page(params[:page])
     @subcategories = category.children
   end
 

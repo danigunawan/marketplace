@@ -44,7 +44,7 @@ export function syncQueryForm(node) {
     let params = searchToObj(window.location.search);
     $(node || 'body').find("[data-sync-query-form]").each(function() {
         let _params = {...params};
-        $(this).find("input").each(function() {
+        $(this).find("input").add($(this).find("select")).each(function() {
             if($(this).attr('name') in _params)
                 delete _params[$(this).attr('name')]
         });
