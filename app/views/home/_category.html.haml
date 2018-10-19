@@ -1,0 +1,8 @@
+%li.nav-item
+  %a#category1-tab.nav-link.text-uppercase.active{ "aria-controls" => "category{#@id}",
+                                                  "aria-selected" => "true",
+                                                  "data-toggle" => "tab",
+                                                  href: "#category{#@id}",
+                                                  role: "tab" }
+    %span
+      = category.name
