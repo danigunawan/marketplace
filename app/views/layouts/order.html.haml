@@ -2,17 +2,18 @@
 %html{ lang: "en" }
   = render "layouts/head"
   %body
-    = render "layouts/flash"
-    %header
-      .float-left
-        Logo
-      .float-right
-        = yield :buttons
-      .clearfix
-    %main
-      .alert.alert-info
-        This is a layout stub for orders. It can be found in
-        %code layouts/order.html.haml
+    %header.container
+      %nav.navbar.navbar-expand-lg
+        = link_to root_path, class: "navbar-brand mr-3" do
+          -# Empty
+        .text-right.flex-grow-1
+          = yield :buttons
+      = render "layouts/flash"
+    %main.container
       = yield
+      %hr
+      .text-right.glex-grow-1
+        = yield :buttons
+
   = render "layouts/footer"
 
