@@ -40,7 +40,7 @@ class Backoffice::ServicePolicy < ApplicationPolicy
      :webpage_url, :manual_url, :helpdesk_url,
      :tutorial_url, :restrictions, :phase,
      :activate_message,
-     [contact_emails: []]]
+     [contact_emails: []], [areas: []]]
   end
 
   private

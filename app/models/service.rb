@@ -6,6 +6,24 @@ class Service < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  AREAS = {
+    "Formal Sciences": 0,
+    "Physical Sciences": {
+      "Physics": 0,
+      "Chemistry": 1,
+      "Earth science": 2,
+      "Astronomy": 3
+    },
+    "Life Sciences / Biology": 2,
+    "Social Sciences": 3,
+    "Applied Sciences / Engineering / Healthcare": 4,
+    "Philosophy / History": 5,
+    "Interdisciplinary": 6,
+    "Other (Please provide a scientific disciplines that your service supports)": 7
+  }
+
+  enum areas: AREAS
+
   has_many :offers, dependent: :restrict_with_error
   has_many :service_categories, dependent: :destroy
   has_many :categories, through: :service_categories
@@ -48,6 +66,7 @@ class Service < ApplicationRecord
   validates :tutorial_url, presence: true, url: true
   validates :restrictions, presence: true
   validates :phase, presence: true
+  validates :areas, presence: true
 
   after_save :set_first_category_as_main!, if: :main_category_missing?
 

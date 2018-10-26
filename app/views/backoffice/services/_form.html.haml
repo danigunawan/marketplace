@@ -21,6 +21,7 @@
   = f.input :activate_message
   = f.association :provider
   = f.input :contact_emails, as: :array, multiple: true
+  = f.input :areas, collection: Service.areas.keys, input_html: { multiple: true }, include_blank: false
   %a#add-email-field Add additional email
   .invalid-feedback{ styles: "display:block" }
 
