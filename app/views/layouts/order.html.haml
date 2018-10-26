@@ -5,15 +5,19 @@
     %header.container
       %nav.navbar.navbar-expand-lg
         = link_to root_path, class: "navbar-brand mr-3" do
-          -# Empty
+          = image_tag "eosc-logo-color.png"
         .text-right.flex-grow-1
-          = yield :buttons
+          = yield :cancel_button
+          = yield :next_button
       = render "layouts/flash"
     %main.container
+      %h1
+        = @service.title
+      %p.summary= @service.tagline
       = yield
       %hr
-      .text-right.glex-grow-1
-        = yield :buttons
+      .navbar.justify-content-end
+        = yield :next_button
 
   = render "layouts/footer"
 

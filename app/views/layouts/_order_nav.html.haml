@@ -1,0 +1,10 @@
+%ul.nav.order-nav
+  %li.nav-item
+    = link_to "Offer selection", service_offers_path(service),
+      class: "nav-link #{"active" if step == 1}"
+  %li.nav-item
+    = link_to "Service configuration", service_configuration_path(service),
+      class: "nav-link #{"active" if step == 2} #{"disabled" if step < 2}"
+  %li.nav-item
+    = link_to "Summary", service_summary_path(service),
+      class: "nav-link #{"active" if step == 3} #{"disabled" if step < 3}"
