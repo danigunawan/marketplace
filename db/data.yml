@@ -6,12 +6,15 @@ categories:
     Data & Storage:
         name: &dataStorageParent Data & Storage
         description: Storage and data management services.
-    Platforms:
-        name: &platformsParent Platforms
+    Applications on Demand:
+        name: &applicationsParent Applications on Demand
         description: Applications on Demand gives you access to online applications and application-development and hosting frameworks to support compute-intensive data analysis.
     Thematic services:
         name: &thematicServicesParent Thematic services
         description: High-level services, often discipline-specific for research communities.
+    Research Data:
+        name: &researchDataParent Research Data
+        description:
     Identity:
         name: &identityParent Identity & Security
         description: Identity management, authorisation and other services to ensure trust.
@@ -23,7 +26,7 @@ services:
 
     Cloud compute:
         title: Cloud compute
-        parent: *computeParent
+        parents: *computeParent
         webpage_url: https://www.egi.eu/services/cloud-compute/
         manual_url: https://wiki.egi.eu/wiki/Federated_Cloud_user_support
         helpdesk_url: https://www.egi.eu/more-information/
@@ -31,9 +34,9 @@ services:
         terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
         corporate_sla_url: https://documents.egi.eu/document/2733
         access_policies_url: https://marketplace.egi.eu/content/7-access-policy
-        places: EmptyNow
+        places: &europe Europe 
         languages: &english English
-        dedicated_for: EmptyNow
+        area: &interdisciplinary Interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Run virtual machines on-demand with complete control over computing resources
@@ -57,7 +60,7 @@ services:
                          The genetics of Salmonella infections: how Cloud Compute helped scientists to understand what happens during when a human cell meets Salmonella"
     High-Throughput compute:
         title: High-Throughput compute
-        parent: *computeParent
+        parents: *computeParent
         webpage_url: https://www.egi.eu/services/high-throughput-compute/
         manual_url: https://wiki.egi.eu/wiki/Federated_Cloud_user_support
         helpdesk_url: https://www.egi.eu/more-information/
@@ -65,9 +68,9 @@ services:
         terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
         corporate_sla_url: https://documents.egi.eu/document/2733
         access_policies_url: https://marketplace.egi.eu/content/7-access-policy
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Execute thousands of computational tasks to analyse large datasets
@@ -91,7 +94,7 @@ services:
                          Small settlements coalesce into larger cities: how the OpenMOLE platform and High-Throughput Compute helped to validate a long-held theory in geography"
     Cloud container compute:
         title: Cloud container compute
-        parent: *computeParent
+        parents: *computeParent
         webpage_url: https://www.egi.eu/services/cloud-compute/
         manual_url: https://wiki.egi.eu/wiki/Federated_Cloud_user_support
         helpdesk_url: https://www.egi.eu/more-information/
@@ -99,9 +102,9 @@ services:
         terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
         corporate_sla_url: https://documents.egi.eu/document/2733
         access_policies_url: https://marketplace.egi.eu/content/7-access-policy
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Run Docker containers in a lightweight virtualised environment
@@ -118,7 +121,7 @@ services:
                           You will be contacted by the EGI support team."
     B2DROP:
         title: B2DROP
-        parent: *dataStorageParent
+        parents: *dataStorageParent
         webpage_url: https://www.eudat.eu/services/b2drop
         manual_url: https://eudat.eu/services/userdoc/b2drop
         helpdesk_url: https://www.eudat.eu/support-request?service=B2DROP
@@ -126,9 +129,9 @@ services:
         terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
         corporate_sla_url: https://www.eosc-hub.eu/order-service
         access_policies_url: https://eudat.eu/policy
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Secure and trusted data exchange service for researchers
@@ -157,7 +160,9 @@ services:
                       EUDAT and JSC."
     B2FIND:
         title: B2FIND
-        parent: *dataStorageParent
+        parents:
+            - *dataStorageParent
+            - *researchDataParent
         webpage_url: https://www.eudat.eu/services/b2find
         manual_url: https://eudat.eu/services/userdoc/b2find
         helpdesk_url: https://www.egi.eu/more-information/
@@ -165,9 +170,9 @@ services:
         terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
         corporate_sla_url: https://www.eosc-hub.eu/order-service
         access_policies_url: https://eudat.eu/policy
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Metadata based data-discovery
@@ -207,7 +212,7 @@ services:
                       EUDAT and Deutsches Klimarechenzentrum (DKRZ)"
     B2HANDLE:
         title: B2HANDLE
-        parent: *dataStorageParent
+        parents: *dataStorageParent
         webpage_url: https://www.eudat.eu/services/b2handle
         manual_url: https://eudat.eu/services/userdoc/b2handle
         helpdesk_url: https://www.egi.eu/more-information/
@@ -215,15 +220,15 @@ services:
         terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
         corporate_sla_url: https://www.eosc-hub.eu/order-service
         access_policies_url: https://eudat.eu/policy
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Secure and trusted data exchange service for researchers
         description: "B2HANDLE is the distributed service for minting, storing, managing and accessing persistent identifiers (PIDs) and essential metadata (PID records) as well as managing PID namespaces. The implementation of the service relies on the DONA/Handle persistent identifier solution.
 
-                      B2HANDLE can be used by middleware applications, end-user tools and other service to reliably identify data objects over longer timespans and through changes in object location or ownership. The B2HANDLE service encompasses management of identifier namespaces (Handle prefixes), establishment of policies and business workflows, operation of Handle servers and technical services, and a user-friendly Python library for general interaction with Handle servers and EUDAT-specific extensions. B2HANDLE is mostly transparent to end-users, shielding them from the complexity of infrastructure details. In the background, B2HANDLE operates as a federation and based on policies that aim to ensure high availability of Handle resolution by cross-site mirroring of Handles. B2HANDLE supports a dedicated Handle record structure (a PID profile) for the safe data management within an infrastructure with a given topology. By relying on features of the PID profile, end-users can, for instance, ensure authenticity of objects with checksums and timestamps and account for replicated objects across multiple locations.
+                      B2HANDLE can be used by middleware applications, end-user tools and other service to reliably identify data objects over longer timespans and through changes in object location or ownership. The B2HANDLE service encompasses management of identifier namespaces (Handle prefixes), establishment of policies and business workflows, operation of Handle servers and technical services, and a user-friendly Python library for general interaction with Handle servers and EUDAT-specific extensions. B2HANDLE is mostly transparents to end-users, shielding them from the complexity of infrastructure details. In the background, B2HANDLE operates as a federation and based on policies that aim to ensure high availability of Handle resolution by cross-site mirroring of Handles. B2HANDLE supports a dedicated Handle record structure (a PID profile) for the safe data management within an infrastructure with a given topology. By relying on features of the PID profile, end-users can, for instance, ensure authenticity of objects with checksums and timestamps and account for replicated objects across multiple locations.
 
                       ## Note:
 
@@ -243,7 +248,7 @@ services:
                       EUDAT and SURFsara, GRNET"
     B2NOTE:
         title: B2NOTE
-        parent: *dataStorageParent
+        parents: *dataStorageParent
         webpage_url: https://www.eudat.eu/catalogue/B2NOTE
         manual_url: https://www.google.com/
         helpdesk_url: https://www.eudat.eu/contact-support-request?service=B2NOTE
@@ -251,9 +256,9 @@ services:
         terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
         corporate_sla_url: https://www.eosc-hub.eu/order-service
         access_policies_url: https://eudat.eu/policy
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Data annotation service to create annotations on research data
@@ -285,7 +290,7 @@ services:
                       EUDAT and BSC"
     B2SAFE:
         title: B2SAFE
-        parent: *dataStorageParent
+        parents: *dataStorageParent
         webpage_url: https://www.eudat.eu/services/b2safe
         manual_url: https://eudat.eu/services/userdoc/configure-b2safe
         helpdesk_url: https://eudat.eu/contact-support-request
@@ -293,9 +298,9 @@ services:
         terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
         corporate_sla_url: https://www.eosc-hub.eu/order-service
         access_policies_url: https://eudat.eu/policy
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Distribute and store large volumes of data based on data policies
@@ -315,7 +320,7 @@ services:
                       EUDAT and all generic CDI Level 1 providers"
     B2SHARE:
         title: B2SHARE
-        parent: *dataStorageParent
+        parents: *dataStorageParent
         webpage_url: https://www.eudat.eu/services/b2share
         manual_url: https://wiki.egi.eu/wiki/Federated_Cloud_user_support
         helpdesk_url: https://eudat.eu/contact-support-request
@@ -323,9 +328,9 @@ services:
         terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
         corporate_sla_url: https://www.eosc-hub.eu/order-service
         access_policies_url: https://eudat.eu/policy
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Store and publish research data
@@ -357,7 +362,7 @@ services:
                       EUDAT and CSC"
     B2STAGE:
         title: B2STAGE
-        parent: *dataStorageParent
+        parents: *dataStorageParent
         webpage_url: https://www.eudat.eu/services/b2stage
         manual_url: https://wiki.egi.eu/wiki/Federated_Cloud_user_support
         helpdesk_url: https://eudat.eu/contact-support-request
@@ -365,9 +370,9 @@ services:
         terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
         corporate_sla_url: https://www.eosc-hub.eu/order-service
         access_policies_url: https://eudat.eu/policy
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Transfer of data between data resources and external computational facilities
@@ -385,17 +390,17 @@ services:
                       EUDAT and all generic EUDAT CDI Level 1 providers."
     EGI Archive storage:
         title: EGI Archive storage
-        parent: *dataStorageParent
+        parents: *dataStorageParent
         webpage_url: https://www.egi.eu/services/archive-storage/
-        manual_url: https://wiki.egi.eu/wiki/Federated_Cloud_user_support
+        manual_url: https://wiki.egi.eu/wiki/Online_Storage
         helpdesk_url: https://www.egi.eu/more-information/
         tutorial_url: https://www.eosc-hub.eu/training-material/egi-cloud-compute
         terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
         corporate_sla_url: https://www.eosc-hub.eu/order-service
         access_policies_url: https://eudat.eu/policy
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Back-up your data for the long term and future use in a secure environment.
@@ -413,37 +418,125 @@ services:
                          3. Go to the cart and submit your order.
                          4. You will receive an email summarising your order.
                          5. You will be contacted by the EGI support team."
-    EGI Online storage:
-        title: EGI Online storage
-        parent: *dataStorageParent
-        webpage_url: https://www.egi.eu/services/cloud-compute/
-        manual_url: https://wiki.egi.eu/wiki/Federated_Cloud_user_support
+    EGI Block storage:
+        title: EGI Block storage
+        parents: *dataStorageParent
+        webpage_url: https://www.egi.eu/services/online-storage/
+        manual_url: https://wiki.egi.eu/wiki/Online_Storage
         helpdesk_url: https://www.egi.eu/more-information/
         tutorial_url: https://www.eosc-hub.eu/training-material/egi-cloud-compute
         terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
         corporate_sla_url: https://www.eosc-hub.eu/order-service
         access_policies_url: https://marketplace.egi.eu/content/7-access-policy
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Store, share and access your files and their metadata on a global scale.
-        description: "Online Storage allows you to store data in a reliable and high-­quality environment and share it across distributed teams. Your data can be accessed through different standard protocols and can be replicated across different providers to increase fault­-tolerance.
-
-                      Online Storage gives you complete control over the data you share and with whom.
-
-
-                      ## To access the service you need to:
-
-                         1. Request access selecting one of the service options below.
-                         2. Set the relevant parameters and add the service to the cart.
-                         3. Go to the cart and submit your order.
-                         4. You will receive an email summarising your order.
-                         5. You will be contacted by the EGI support team."
+        description: "Block Storage is a block-level storage solution that allows you to expand the storage capacity
+        of your instances in the EGI Federated Cloud. This means you can increase your storage without increasing
+        the size or capacity of your instance or by provisioning new ones.
+        Once you mount and format your drive, you can use it just like a regular hard drive attached to your server.
+        Or you can detach your block storage volume from one server and attach it to another.
+        Or you can delete your server, keeping your data intact and ready for the next time you need it."
+    EGI Object storage:
+        title: EGI Block storage
+        parents: *dataStorageParent
+        webpage_url: https://www.egi.eu/services/online-storage/
+        manual_url: https://wiki.egi.eu/wiki/Online_Storage
+        helpdesk_url: https://www.egi.eu/more-information/
+        tutorial_url: https://www.eosc-hub.eu/training-material/egi-cloud-compute
+        terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
+        corporate_sla_url: https://www.eosc-hub.eu/order-service
+        access_policies_url: https://marketplace.egi.eu/content/7-access-policy
+        places: *europe
+        languages: *english
+        area: *interdisciplinary
+        restrictions: EmptyNow
+        phase: EmptyNow
+        tagline: Store, share and access your files and their metadata on a global scale.
+        description: "Object storage manages data as objects. Each object includes the data itself, a variable amount of metadata, and a globally unique identifier.
+        Cloud object storage allows relatively inexpensive, scalable and self-healing retention of massive amounts of unstructured data."
+    EGI File storage:
+        title: EGI Block storage
+        parents: *dataStorageParent
+        webpage_url: https://www.egi.eu/services/online-storage/
+        manual_url: https://wiki.egi.eu/wiki/Online_Storage
+        helpdesk_url: https://www.egi.eu/more-information/
+        tutorial_url: https://www.eosc-hub.eu/training-material/egi-cloud-compute
+        terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
+        corporate_sla_url: https://www.eosc-hub.eu/order-service
+        access_policies_url: https://marketplace.egi.eu/content/7-access-policy
+        places: *europe
+        languages: *english
+        area: *interdisciplinary
+        restrictions: EmptyNow
+        phase: EmptyNow
+        tagline: Store, share and access your files and their metadata on a global scale.
+        description: "Highly scalable storage system accessible from anywhere allowing to easily share data through different standard interfaces.
+        It assigns global identifiers to files and allows to organise your data using a flexible hierarchical structure."
+    Argo:
+        title: Argo
+        parents: *researchDataParent
+        webpage_url: http://www.euro-argo.eu/Activities/Data-Management
+        manual_url: http://www.argo.ucsd.edu/Argo_date_guide.html
+        helpdesk_url: https://www.egi.eu/more-information/
+        tutorial_url: https://www.eosc-hub.eu/training-material/egi-cloud-compute
+        terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
+        corporate_sla_url: https://www.eosc-hub.eu/order-service
+        access_policies_url: https://marketplace.egi.eu/content/7-access-policy
+        places: *europe
+        languages: *english
+        area: *interdisciplinary
+        restrictions: EmptyNow
+        phase: EmptyNow
+        tagline: Store, share and access your files and their metadata on a global scale.
+        description: "The data are available as downloadable netCDF files from Argo's
+        two Global Data Assembly Centers (GDACS) and there are various data products too
+        which can be accessed through various data viewers.
+        Data from individual floats are also available from a certain region or time."
+    Clarin:
+        title: Clarin
+        parents: *researchDataParent
+        webpage_url: https://clarin.eu/
+        manual_url: https://vlo.clarin.eu/help
+        helpdesk_url: https://www.egi.eu/more-information/
+        tutorial_url: https://www.eosc-hub.eu/training-material/egi-cloud-compute
+        terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
+        corporate_sla_url: https://www.eosc-hub.eu/order-service
+        access_policies_url: https://marketplace.egi.eu/content/7-access-policy
+        places: *europe
+        languages: *english
+        area: *interdisciplinary
+        restrictions: EmptyNow
+        phase: EmptyNow
+        tagline: Store, share and access your files and their metadata on a global scale.
+        description: "The data are available as downloadable netCDF files from Argo's two
+        Global Data Assembly Centers (GDACS) and there are various data products too
+        which can be accessed through various data viewers.
+        Data from individual floats are also available from a certain region or time."
+    EIDA Data Archive:
+        title: EIDA Data Archive
+        parents: *researchDataParent
+        webpage_url: https://www.orfeus-eu.org/data/eida/
+        manual_url: https://www.google.com/
+        helpdesk_url: https://www.google.com/
+        tutorial_url: https://www.google.com/
+        terms_of_use_url: https://www.google.com/
+        corporate_sla_url: https://www.google.com/
+        access_policies_url: https://www.google.com/
+        places: *europe
+        languages: *english
+        area: *interdisciplinary
+        restrictions: EmptyNow
+        phase: EmptyNow
+        tagline: Store, share and access your files and their metadata on a global scale.
+        description: "ORFEUS provides access to high quality seismic waveforms and station metadata from EIDA and strong motion products.
+        Access to waveform and station metadata is possible through modern APIs and interfaces, such as the Rapid Raw Strong Motion system."
     Applications on Demand:
         title: Applications on Demand
-        parent: *platformsParent
+        parents: *applicationsParent
         webpage_url: https://www.egi.eu/services/applications-on-demand/
         manual_url: https://wiki.egi.eu/wiki/AoD
         helpdesk_url: https://www.egi.eu/more-information/
@@ -451,13 +544,9 @@ services:
         terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
         corporate_sla_url: https://www.eosc-hub.eu/order-service
         access_policies_url: https://marketplace.egi.eu/content/7-access-policy
-        places: EmptyNow
-        languages:
-            - *english
-            - Hungarian
-            - Italian
-            - Polish
-        dedicated_for: EmptyNow
+        places: *europe
+        languages: *english
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Applications on Demand gives you access to online applications and application-development and hosting frameworks to support compute-intensive data analysis
@@ -476,10 +565,27 @@ services:
                      Featured use cases:
 
                          New viruses implicated in fatal snake disease  how the Chipster platform helped virologists to make sense of millions of virus genomes"
-
+    GNU Octave:
+        title: GNU Octave
+        parents: *applicationsParent
+        webpage_url: https://www.egi.eu/services/applications-on-demand/
+        manual_url: https://wiki.egi.eu/wiki/AoD
+        helpdesk_url: https://www.egi.eu/more-information/
+        tutorial_url: https://wiki.egi.eu/wiki/HowToAccessTheEGIMarketPlace
+        terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
+        corporate_sla_url: https://www.eosc-hub.eu/order-service
+        access_policies_url: https://marketplace.egi.eu/content/7-access-policy
+        places: *europe
+        languages: *english
+        area: *interdisciplinary
+        restrictions: EmptyNow
+        phase: EmptyNow
+        tagline: Applications on Demand gives you access to online applications and application-development and hosting frameworks to support compute-intensive data analysis
+        description: "GNU Octave is a high-level interpreted language, primarily intended for numerical computations.
+        It provides capabilities for the numerical solution of linear and nonlinear problems, and for performing other numerical experiments."
     Component Metadata Infrastructure:
         title: Component Metadata Infrastructure
-        parent: *thematicServicesParent
+        parents: *thematicServicesParent
         webpage_url: https://www.clarin.eu/content/component-metadata
         manual_url: https://www.clarin.eu/content/component-metadata
         helpdesk_url: https://www.clarin.eu/content/support
@@ -487,9 +593,9 @@ services:
         terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
         corporate_sla_url: https://www.eosc-hub.eu/order-service
         access_policies_url: https://marketplace.egi.eu/content/7-access-policy
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Services for Social Sciences and Humanities provided via the national CLARIN centres
@@ -514,7 +620,7 @@ services:
 
     DARIAH:
         title: DARIAH
-        parent: *thematicServicesParent
+        parents: *thematicServicesParent
         webpage_url: https://www.dariah.eu/
         manual_url: https://www.dariah.eu/about/dariah-in-nutshell/
         helpdesk_url: https://www.dariah.eu/contact
@@ -522,9 +628,9 @@ services:
         terms_of_use_url: https://www.google.com/
         corporate_sla_url: https://www.google.com/
         access_policies_url: https://www.dariah.eu/privacy-notice/
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: The DARIAH Science Gateway is a platform that provides access to various digital applications and services for the Arts & Humanities researchers
@@ -541,7 +647,7 @@ services:
                           File transfer service: Enables transferring data from, to and between storage services providing HTTP, HTTPS, SFTP, GSIFTP, SRM, iRODS and S3 protocols."
     Dynamic On Demand Analysis Service:
         title: Dynamic On Demand Analysis Service
-        parent: *thematicServicesParent
+        parents: *thematicServicesParent
         webpage_url: https://www.eosc-hub.eu/catalogue/Dynamic%20On%20Demand%20Analysis%20Service
         manual_url: https://dodas-ts.github.io/dodas-doc/
         helpdesk_url: https://www.google.com/
@@ -549,9 +655,9 @@ services:
         terms_of_use_url: https://www.google.com/
         corporate_sla_url: https://www.google.com/
         access_policies_url: https://www.google.com/
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Simplify the access and management of computing resources
@@ -582,7 +688,9 @@ services:
                       The DODAS service builds on EOSC-hub services developed during the INDIGO-DataCloud project (Identity Access Management - IAM, Token Translation Service - TTS, PaaS Orchestration, TOSCA Templates)."
     ENES Climate Analytics Service:
         title: ENES Climate Analytics Service
-        parent: *thematicServicesParent
+        parents:
+            - *thematicServicesParent
+            - *researchDataParent
         webpage_url: https://portal.enes.org/data/data-metadata-service/processing/ecas
         manual_url: https://www.google.com/
         helpdesk_url: https://portal.enes.org/contact
@@ -590,9 +698,9 @@ services:
         terms_of_use_url: https://www.google.com/
         corporate_sla_url: https://www.google.com/
         access_policies_url: https://www.google.com/
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Analyze and process data from multiple communities with the Ophidia Big Data Analytics framework
@@ -617,7 +725,7 @@ services:
                           ESGF"
     LifeWatch ERIC Plants Identification App:
         title: LifeWatch ERIC Plants Identification App
-        parent: *thematicServicesParent
+        parents: *thematicServicesParent
         webpage_url: https://marketplace.eosc-hub.eu/48-lifewatch-eric-plants-identification-app
         manual_url: https://github.com/IgnacioHeredia/plant_classification/blob/master/webpage/README.md#using-the-api%20
         helpdesk_url: https://www.google.com/
@@ -625,9 +733,9 @@ services:
         terms_of_use_url: https://www.google.com/
         corporate_sla_url: https://www.google.com/
         access_policies_url: https://www.google.com/
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Web service to classify plant pictures based on convolutional neural networks
@@ -651,7 +759,7 @@ services:
                       The Service is provided by LifeWatch ERIC."
     OPENCoastS:
         title: OPENCoastS
-        parent: *thematicServicesParent
+        parents: *thematicServicesParent
         webpage_url: https://www.eosc-hub.eu/catalogue/OPENCoastS
         manual_url: https://www.google.com/
         helpdesk_url: https://www.google.com/
@@ -659,9 +767,9 @@ services:
         terms_of_use_url: https://www.google.com/
         corporate_sla_url: https://www.google.com/
         access_policies_url: https://www.google.com/
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: On-demand operational coastal circulation forecast service
@@ -693,7 +801,7 @@ services:
                       Through EOSC-hub, OPENCoastS will be expanded to include a more diverse set of geographical data, and improved with integration of new features from the EGI, EUDAT and INDIGO-DataCloud service catalogues."
     WeNMR Suite for Structural Biology:
         title: WeNMR Suite for Structural Biology
-        parent: *thematicServicesParent
+        parents: *thematicServicesParent
         webpage_url: https://www.wenmr.eu/
         manual_url: https://www.wenmr.eu/tutorials/
         helpdesk_url: https://www.wenmr.eu/support/
@@ -701,9 +809,9 @@ services:
         terms_of_use_url: https://www.google.com/
         corporate_sla_url: https://www.google.com/
         access_policies_url: https://www.google.com/
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: A suite of computational tools for structural biology
@@ -740,7 +848,7 @@ services:
                       During EOSC-hub, the WeNMR services will be integrated with EUDAT services and other components from the INDIGO catalogue."
     Check-in:
         title: Check-in
-        parent: *identityParent
+        parents: *identityParent
         webpage_url: https://www.egi.eu/services/check-in/
         manual_url: https://www.google.com/
         helpdesk_url: https://www.google.com/
@@ -748,20 +856,20 @@ services:
         terms_of_use_url: https://www.google.com/
         corporate_sla_url: https://www.google.com/
         access_policies_url: https://www.google.com/
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: The IdP Proxy provides AAI services for both service providers and users.
-        description: "For the user the feature is transparent: as soon as their IdP is integrated with the proxy, they are redirected by the service to their own IdP. Once integrated the IdP with the proxy, all the services using the IdP proxy will be available.
+        description: "For the user the feature is transparents: as soon as their IdP is integrated with the proxy, they are redirected by the service to their own IdP. Once integrated the IdP with the proxy, all the services using the IdP proxy will be available.
 
                       The service providers will get all the AuthN/AuthZ information needed from the IdP Proxy (in form of attributes), without the need to deal with individual IdPs.
 
                       Other components that can be attached to the IdP Proxy are credential translation services and attribute authorities."
     Attribute management:
         title: Attribute management
-        parent: *identityParent
+        parents: *identityParent
         webpage_url: https://www.egi.eu/internal-services/attribute-management/
         manual_url: https://www.google.com/
         helpdesk_url: https://www.google.com/
@@ -769,9 +877,9 @@ services:
         terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
         corporate_sla_url: https://documents.egi.eu/document/2733
         access_policies_url: https://marketplace.egi.eu/content/7-access-policy
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: ToFill
@@ -782,7 +890,7 @@ services:
                       In the wake of extending AAI capabilities, EGI will provide similar capabilities also for other authentication technologies, like OpenID and SAML2, for example."
     Training infrastructure:
         title: Training infrastructure
-        parent: *professionalServicesParent
+        parents: *professionalServicesParent
         webpage_url: https://www.egi.eu/services/training-infrastructure/
         manual_url: https://wiki.egi.eu/wiki/Training_infrastructure
         helpdesk_url: https://www.egi.eu/more-information/
@@ -790,9 +898,9 @@ services:
         terms_of_use_url: https://marketplace.egi.eu/content/3-terms-and-conditions-of-use
         corporate_sla_url: https://documents.egi.eu/document/2733
         access_policies_url: https://marketplace.egi.eu/content/7-access-policy
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Dedicated computing and storage for training and education
@@ -812,7 +920,7 @@ services:
                           You will be contacted by the EGI support team."
     FitSM:
         title: FitSM
-        parent: *professionalServicesParent
+        parents: *professionalServicesParent
         webpage_url: https://www.egi.eu/services/fitsm-training/
         manual_url: https://www.egi.eu/services/fitsm-training/
         helpdesk_url: https://www.egi.eu/more-information/
@@ -820,9 +928,9 @@ services:
         terms_of_use_url: https://www.egi.eu/services/fitsm-training/terms-and-conditions/
         corporate_sla_url: https://documents.egi.eu/document/2733
         access_policies_url: https://marketplace.egi.eu/content/7-access-policy
-        places: EmptyNow
+        places: *europe
         languages: *english
-        dedicated_for: EmptyNow
+        area: *interdisciplinary
         restrictions: EmptyNow
         phase: EmptyNow
         tagline: Learn how to manage IT services with a pragmatic and lightweight standard

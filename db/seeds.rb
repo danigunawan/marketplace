@@ -42,8 +42,10 @@ yaml_hash["services"].each do |_, hash|
                     languages: hash["languages"],
                     dedicated_for: hash["dedicated_for"],
                     restrictions: hash["restrictions"],
-                    phase: hash["phase"],
-                    categories: [Category.find_by(name: hash["parent"])])
+                    phase: hash["phase"])
+    yaml_hash["categories"].each do |_, hash|
+      service.update!(categories: [Category.find_by(name: hash["parents"])])
+    end
 
     service.offers.create!(name: "Offer 1", description: "This is offer 1")
     service.offers.create!(name: "Offer 2", description: "This is offer 2")
